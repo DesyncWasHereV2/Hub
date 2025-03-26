@@ -1,6 +1,3 @@
-
-print("Make sure to do _G.Connection = true to enable!")
-
 local Webhook = loadstring(game:HttpGet("https://raw.githubusercontent.com/DesyncWasHereV2/Webhook/refs/heads/main/Webhook.lua"))()
 local WebhookURL = _G.Webhook
 
