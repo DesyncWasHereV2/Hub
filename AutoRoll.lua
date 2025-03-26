@@ -32,32 +32,38 @@ local function HandlePetRoll()
                             ["color"] = 0xFFFF00,
                             ["fields"] = {
                                 {
-                                    ["name"] = "Pet Name",
+                                    ["name"] = "🐾 Pet Name",
                                     ["value"] = PetName,
                                     ["inline"] = true
                                 }
                             }
                         }
-
+                        
                         if Data.huge then
-                            embedData.title = "Huge Pet Hatched!"
-                            embedData.description = "A **Huge** pet named **" .. PetName .. "** has been hatched!"
+                            embedData.title = "🎉 Huge Pet Hatched! 🎉"
+                            embedData.description = "🔥 A **HUGE** pet named **" .. PetName .. "** has been hatched! 🔥"
                             embedData.color = 0xFF5733
                         elseif Data.secret then
-                            embedData.title = "Secret Pet Hatched!"
-                            embedData.description = "A **Secret** pet named **" .. PetName .. "** has been hatched!"
+                            embedData.title = "🕵️ Secret Pet Hatched! 🕵️"
+                            embedData.description = "🤫 A **SECRET** pet named **" .. PetName .. "** has been discovered! 🤫"
                             embedData.color = 0x900C3F
                         elseif Data.titanic then
-                            embedData.title = "Titanic Pet Hatched!"
-                            embedData.description = "A **Titanic** pet named **" .. PetName .. "** has been hatched!"
+                            embedData.title = "🚢 Titanic Pet Hatched! 🚢"
+                            embedData.description = "🌊 A **TITANIC** pet named **" .. PetName .. "** has been unleashed! 🌊"
                             embedData.color = 0x1E90FF
                         end
-
+                        
+                        if t.data["sh"] and t.data["sh"] == true then
+                            embedData.title = "✨ SHINY " .. embedData.title
+                            embedData.description = embedData.description .. " ✨ And it's **SHINY**! ✨"
+                            embedData.color = 0xFFD700
+                        end
+                        
                         webhookInstance:Edit({
                             embeds = { embedData }
                         })
-
-                        local response = webhookInstance:Post()
+                        
+                        webhookInstance:Post()
                     end
                 end
             end
